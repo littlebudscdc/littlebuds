@@ -1,0 +1,262 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Forum&display=swap");
+
+:root {
+  --primary-color: #12c2b9;
+  --secondary: #dbfffe;
+  --black: #141414;
+  --white: #fff;
+  --box-shadow: .5rem .5rem 0 rgba(22, 160, 133, .2);
+  --text-shadow: .4rem .4rem 0 rgba(0, 0, 0, .2);
+  --border: .2rem solid var(--primary-color);
+}
+
+* {
+  font-family: 'DM Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: all .2s linear;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-padding-top: 9rem;
+  scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar {
+  width: 1rem;
+}
+
+html::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+}
+
+body {
+  background-color: #fafeff;
+}
+
+section {
+  padding: 5rem 7%;
+}
+
+/* logo */
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #333; /* Color for the text */
+}
+
+.logo-icon {
+  width: 80px; /* Adjust the width as needed for the logo */
+  height: 80px;
+  margin-right: 10px; /* Adjust spacing between icon and text */
+}
+
+
+
+/* header */
+
+.header{
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: var(--white);
+  box-shadow: var(--box-shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 9%;
+}
+
+.header .logo{
+  font-size: 2.5rem;
+  font-weight: bolder;
+  color: var(--black);
+}
+
+.header .logo i{
+  color: var(--primary-color);
+  padding-right: .5rem;
+}
+
+.header .navbar a{
+  font-size: 1.7rem;
+  color: var(--black);
+  margin: 0 1rem;
+  padding-block: 1rem;
+}
+
+.header .navbar a:hover{
+  color: var(--primary-color);
+}
+
+.header .navbar .hover-underline{
+  position: relative;
+  max-width: max-content;
+}
+
+.header .navbar .hover-underline::after{
+  content: '';
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 100%;
+  height: .5rem;
+  border-block: .1rem solid var(--primary-color);
+  transform: scaleX(0.2);
+  opacity: 0;
+  transition: 500ms ease;
+}
+
+.header .navbar .hover-underline:is(:hover, :focus-visible)::after{
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+.header .icons div{
+  font-size: 2.5rem;
+  margin-left: 1.7rem;
+  color: var(--black);
+  cursor: pointer;
+}
+
+.header .icons div:hover{
+  color: var(--primary-color);
+}
+
+
+#menu-btn{
+  display: none;
+}
+
+
+
+
+/* about */
+
+
+
+
+.about .row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.about .row .content,
+.about .row .use {
+  flex: 1 1 45rem;
+}
+
+.about .row .content h3,
+.about .row .use h3 {
+  color: var(--primary-color);
+  font-size: 4rem;
+  line-height: 1.8;
+}
+
+.about .row .content p,
+.about .row .use p {
+  color: rgb(51, 50, 50);
+  padding: 1rem 0;
+  font-size: 2rem;
+  line-height: 1.8;
+}
+
+.about .row .content i,
+.about .row .use i {
+  padding-right: .5rem;
+  color: var(--primary-color);
+}
+
+.about .row .content span{
+  color: rgb(51, 50, 50);
+  font-size: 1.8rem;
+  line-height: 5rem;
+}
+
+
+
+
+
+@media (max-width:768px){
+
+  #menu-btn{
+    display: inline-block;
+  }
+
+  .header .navbar{
+    position: absolute;
+    top: 110%; right: -110%;
+    width: 30rem;
+    box-shadow: var(--box-shadow);
+    border-radius: .5rem;
+    background: var(--white);
+  }
+
+  .header .navbar.active{
+    right: 2rem;
+    transition: .4s linear;
+  }
+
+  .header .navbar a{
+    font-size: 2rem;
+    margin: 1rem 2.5rem;
+    display: block;
+  }
+
+  .home .content h3{
+    font-size: 3rem;
+  }
+
+  .about .container .about-content{
+    padding-left: 0;
+  }
+  
+}
+
+@media (max-width:450px){
+  html{
+    font-size: 50%;
+  }
+}
+
+
+/*homeback*/
+
+.btncontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh; /* This centers the button vertically as well */
+}
+
+
+.btn {
+  display: inline-block;
+  background-color: var(--secondary); /* Button background color */
+  color: var(--primary-color); /* Button text color */
+  padding: 10px 20px; /* Button padding */
+  text-decoration: none; /* Remove default underline */
+  border-radius: 5px; /* Button border radius */
+  transition: background-color 0.3s, color 0.3s; /* Transition effect for hover */
+  font-size: 15px;
+  border: 2px solid var(--primary-color);
+}
+
+.btn:hover {
+  background-color: var(--primary-color); /* New background color on hover */
+  color: var(--secondary); /* New text color on hover */
+  border-color: var(--primary-color);
+}
